@@ -47,14 +47,12 @@ check: format lint typecheck test
 # Project evolution helpers
 add-package:
 	@test $(name) || (echo "Usage: make add-package name=package-name" && exit 1)
-	mkdir -p packages/$(name)
-	cd packages/$(name) && uv init --lib .
-	@echo "Remember to add $(name) to workspace in pyproject.toml"
+	uv run python scripts/add_package.py $(name)
 
 add-usecase:
 	@test $(name) || (echo "Usage: make add-usecase name=usecase_name domain=domain_name" && exit 1)
 	@test $(domain) || (echo "Usage: make add-usecase name=usecase_name domain=domain_name" && exit 1)
-	scripts/create_usecase.py --name $(name) --domain $(domain)
+	uv run python scripts/create_usecase.py --name $(name) --domain $(domain)
 
 add-endpoint:
 	@test $(name) || (echo "Usage: make add-endpoint name=endpoint_name version=v1" && exit 1)
