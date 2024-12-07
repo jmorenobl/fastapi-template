@@ -4,7 +4,6 @@
 import argparse
 from pathlib import Path
 
-
 ENDPOINT_TEMPLATE = '''"""
 {endpoint_name} endpoints.
 """
@@ -60,8 +59,8 @@ class {schema_class}Response(BaseModel):
 def create_endpoint(name: str, version: str = "v1") -> None:
     """Create a new endpoint."""
     # Convert names to proper format
-    endpoint_name = name.lower().replace('-', '_')
-    usecase_class = ''.join(word.capitalize() for word in endpoint_name.split('_'))
+    endpoint_name = name.lower().replace("-", "_")
+    usecase_class = "".join(word.capitalize() for word in endpoint_name.split("_"))
     schema_class = usecase_class
     project_name = Path.cwd().name
 
@@ -113,5 +112,5 @@ if __name__ == "__main__":
     parser.add_argument("--name", required=True, help="Name of the endpoint")
     parser.add_argument("--version", default="v1", help="API version (default: v1)")
     args = parser.parse_args()
-    
+
     create_endpoint(args.name, args.version)

@@ -60,7 +60,7 @@ add-endpoint:
 
 add-domain:
 	@test $(name) || (echo "Usage: make add-domain name=domain_name" && exit 1)
-	scripts/create_domain.py --name $(name)
+	uv run python scripts/create_domain.py --name $(name)
 
 # Documentation
 docs:
