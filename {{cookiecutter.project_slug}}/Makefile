@@ -56,8 +56,7 @@ add-usecase:
 
 add-endpoint:
 	@test $(name) || (echo "Usage: make add-endpoint name=endpoint_name version=v1" && exit 1)
-	@test $(version) || (echo "Usage: make add-endpoint name=endpoint_name version=v1" && exit 1)
-	scripts/create_endpoint.py --name $(name) --version $(version)
+	uv run python scripts/create_endpoint.py --name $(name) $(if $(version),--version $(version))
 
 add-domain:
 	@test $(name) || (echo "Usage: make add-domain name=domain_name" && exit 1)
