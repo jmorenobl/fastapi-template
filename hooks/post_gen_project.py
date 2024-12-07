@@ -57,8 +57,7 @@ def setup_project() -> None:
     print("\nNext steps:")
     print("1. Change directory to the project: cd {{cookiecutter.project_slug}}")
     print("2. Create a virtual environment: make setup")
-    print("3. Install dependencies: make sync")
-    print("4. Run the development server: make run")
+    print("3. Run the development server: make run")
     print("\nFor more information, check the README.md file.")
 
 if __name__ == '__main__':
