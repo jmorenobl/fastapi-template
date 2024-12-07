@@ -12,7 +12,7 @@ setup:
 
 # Development
 run:
-	uv run uvicorn src.{{cookiecutter.project_slug}}.api.main:app --reload
+	uv run uvicorn {{cookiecutter.project_slug}}.infrastructure.web.api:app --reload
 
 shell:
 	uv run ipython

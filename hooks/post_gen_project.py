@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import shutil
+import secrets
 
 def remove_file(filepath: str) -> None:
     """Remove a file if it exists."""
@@ -17,6 +18,10 @@ def init_git() -> None:
     os.system('git init')
     os.system('git add .')
     os.system('git commit -m "Initial commit from clean-fastapi-cookiecutter"')
+
+def generate_secret_key() -> str:
+    """Generate a secure secret key."""
+    return secrets.token_urlsafe(32)
 
 def setup_project() -> None:
     """Post-generation project setup."""
@@ -42,6 +47,11 @@ def setup_project() -> None:
 
     # Initialize git repository
     init_git()
+
+    # Generate and save secret key
+    secret_key = generate_secret_key()
+    with open('.env', 'w', encoding='utf-8') as f:
+        f.write(f'SECRET_KEY={secret_key}\n')
 
     print("\n✨ Project successfully created! ✨")
     print("\nNext steps:")
