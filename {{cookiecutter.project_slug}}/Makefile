@@ -7,7 +7,7 @@ PROJECT_NAME := {{cookiecutter.project_slug}}
 # Development setup
 setup:
 	uv venv
-	uv sync
+	uv sync --group dev
 	uv run pre-commit install
 
 # Development
