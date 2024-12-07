@@ -1,4 +1,4 @@
-.PHONY: setup run test coverage format lint typecheck check add-package add-usecase add-endpoint docs clean create-project
+.PHONY: setup run test coverage format lint typecheck check add-package add-usecase add-endpoint docs clean
 
 # Project variables
 PYTHON := python3
@@ -90,8 +90,3 @@ clean:
 	rm -rf .ruff_cache
 	find . -type d -name "__pycache__" -exec rm -rf {} +
 	find . -type d -name "*.egg-info" -exec rm -rf {} +
-
-# Create new project from template
-create-project:
-	@test $(name) || (echo "Usage: make create-project name=project-name" && exit 1)
-	scripts/create_project.py --name $(name)
