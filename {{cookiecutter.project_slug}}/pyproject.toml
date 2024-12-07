@@ -77,8 +77,8 @@ plugins = ["pydantic.mypy"]
 [tool.ruff]
 target-version = "py311"
 line-length = 88
-select = ["E", "F", "B", "I", "N", "UP", "PL", "RUF", "SIM", "TD", "ERA"]
-ignore = []
+lint.select = ["E", "F", "B", "I", "N", "UP", "PL", "RUF", "SIM", "TD", "ERA"]
+lint.ignore = []
 
 [tool.ruff.format]
 quote-style = "double"
