@@ -48,7 +48,7 @@ pip install cookiecutter
 
 2. Generate your project:
 ```bash
-cookiecutter gh:yourusername/clean-fastapi-cookiecutter
+cookiecutter gh:jmorenobl/fastapi-template
 ```
 
 3. Answer the prompts:
@@ -83,24 +83,33 @@ The generated project follows this structure:
 ```
 my_fastapi_project/
 ├── src/
-│   ├── core/
-│   │   ├── domain/          # Business entities and rules
-│   │   │   ├── entities/
-│   │   │   └── value_objects/
-│   │   ├── application/     # Use cases and interfaces
-│   │   │   ├── interfaces/
-│   │   │   └── use_cases/
-│   │   └── infrastructure/  # External implementations
-│   │       ├── database/
-│   │       └── messaging/
-│   └── api/
-│       ├── v1/             # API version 1
-│       └── health/         # Health checks
+│   └── my_fastapi_project/
+│       ├── domain/              # Business entities and rules
+│       │   ├── entities/        # Domain entities
+│       │   └── value_objects/   # Value objects
+│       ├── application/         # Application layer
+│       │   ├── interfaces/      # Abstract interfaces
+│       │   │   ├── repositories/
+│       │   │   └── services/
+│       │   └── use_cases/      # Use case implementations
+│       ├── infrastructure/      # External implementations
+│       │   ├── databases/
+│       │   │   └── repositories/
+│       │   └── web/            # Web-related implementations
+│       │       └── endpoints/
+│       └── presentation/        # Presentation layer
+│           ├── presenters/
+│           ├── responses/
+│           └── schemas/
 ├── tests/
 │   ├── unit/
+│   │   ├── domain/
+│   │   ├── application/
+│   │   └── infrastructure/
 │   └── integration/
 ├── docs/                   # Project documentation
 ├── scripts/               # Utility scripts
+├── packages/              # Additional packages
 └── pyproject.toml        # Project configuration
 ```
 
